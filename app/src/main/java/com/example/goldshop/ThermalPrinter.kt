@@ -17,14 +17,12 @@ object ThermalPrinter {
                 socket.connect()
                 val out = socket.outputStream
 
-                out.write(0x1B); out.write('@')                 // مقداردهی اولیه
-                out.write(0x1B); out.write('a'.code); out.write(1) // تراز وسط
+                out.write(0x1B); out.write('@'.code)                 // مقداردهی اولیه
+                out.write(0x1B); out.write('a'.code); out.write(1)    // تراز وسط
 
                 val content = buildString {
-                    lines.forEach { append(it).append('
-') }
-                    repeat(4) { append('
-') }
+                    lines.forEach { append(it).append('\n') }
+                    repeat(4) { append('\n') }
                 }
                 out.write(content.toByteArray(Charsets.UTF_8))
 
