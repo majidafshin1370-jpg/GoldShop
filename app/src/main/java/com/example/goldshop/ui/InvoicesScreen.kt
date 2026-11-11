@@ -460,11 +460,6 @@ private fun InvoiceDetailDialog(
 }
 
 private fun buildInvoiceText(invoice: InvoiceEntity): String =
-    "فاکتور فروش طلا
-" +
-        "مشتری: " + invoice.customerName + "
-" +
+    "فاکتور فروش طلا\n" +
+        "مشتری: " + invoice.customerName + "\n" +
         "مبلغ نهایی: " + formatNum(invoice.total) + " تومان"
-
-private fun formatDate(millis: Long): String =
-    SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.US).format(Date(millis))
