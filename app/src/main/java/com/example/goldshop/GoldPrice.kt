@@ -29,7 +29,7 @@ object GoldPriceApi {
 
     private fun parse(json: String): Map<String, Double> {
         val out = mutableMapOf<String, Double>()
-        val regex = Regex("\"([^\"]+)\"\s*:\s*\"?([\d,]+\.?\d*)\"?")
+        val regex = Regex("\"([^\"]+)\"\\s*:\\s*\"?([\\d,]+\\.?\\d*)\"?")
         for (m in regex.findAll(json)) {
             val key = m.groupValues[1].lowercase()
             val value = m.groupValues[2].replace(",", "").toDoubleOrNull() ?: continue
